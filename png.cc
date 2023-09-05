@@ -6,10 +6,13 @@
  */
 
 #include "png.h"
+#include "pixel.h"
+#include <png.h>
+#include <bits/stdc++.h>
 
 using namespace tinypng;
 
-inline void pngErr(string const& error)
+inline void pngErr(string const &error)
 {
 	cerr << "[TinyPNG]: " << error << endl;
 }
@@ -37,14 +40,14 @@ PNG::PNG(int width, int height, uint8_t *buffer)
 	_buffer = buffer;
 }
 
-PNG::PNG(string const& file_name)
+PNG::PNG(string const &file_name)
 {
 	_buffer = NULL;
 	_ext_buffer = false;
 	readFromFile(file_name);
 }
 
-PNG::PNG(PNG const& other)
+PNG::PNG(PNG const &other)
 {
 	_copy(other);
 }
@@ -58,7 +61,7 @@ PNG::~PNG()
 	}
 }
 
-PNG const& PNG::operator=(PNG const& other)
+PNG const &PNG::operator=(PNG const &other)
 {
 	if (this != &other)
 	{
@@ -69,7 +72,7 @@ PNG const& PNG::operator=(PNG const& other)
 	return *this;
 }
 
-bool PNG::operator==(PNG const& other) const
+bool PNG::operator==(PNG const &other) const
 {
 	if (_width != other._width || _height != other._height)
 	{
@@ -79,7 +82,7 @@ bool PNG::operator==(PNG const& other) const
 	return (memcmp(_buffer, other._buffer, _width * _height) == 0);
 }
 
-bool PNG::operator!=(PNG const & other) const
+bool PNG::operator!=(PNG const &other) const
 {
 	return !(*this == other);
 }
@@ -87,19 +90,19 @@ bool PNG::operator!=(PNG const & other) const
 Pixel PNG::operator()(int x, int y)
 {
 	_clampXY(x, y);
-	return _pixelAt(x,y);
+	return _pixelAt(x, y);
 }
 
-bool PNG::readFromFile(string const& file_name)
+bool PNG::readFromFile(string const &file_name)
 {
 	if (!_ext_buffer && _buffer != NULL)
 	{
 		delete[] _buffer;
 		_buffer = NULL;
 	}
-	
+
 	// we need to open the file in binary mode
-	FILE * fp = fopen(file_name.c_str(), "rb");
+	FILE *fp = fopen(file_name.c_str(), "rb");
 	if (!fp)
 	{
 		pngErr("Failed to open " + file_name);
@@ -118,7 +121,8 @@ bool PNG::readFromFile(string const& file_name)
 	}
 
 	// set up libpng structs for reading info
-	png_structp png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL); if (!png_ptr)
+	png_structp png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+	if (!png_ptr)
 	{
 		pngErr("Failed to create read struct");
 		fclose(fp);
@@ -170,8 +174,7 @@ bool PNG::readFromFile(string const& file_name)
 	}
 	else
 	{
-		if (_width != png_get_image_width(png_ptr, info_ptr)
-		 || _height != png_get_image_height(png_ptr, info_ptr))
+		if (_width != png_get_image_width(png_ptr, info_ptr) || _height != png_get_image_height(png_ptr, info_ptr))
 		{
 			pngErr("Image dimensions do not match external buffer");
 			png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
@@ -192,15 +195,14 @@ bool PNG::readFromFile(string const& file_name)
 		return false;
 	}
 
-
 	int bpr = png_get_rowbytes(png_ptr, info_ptr); // number of bytes in a row
 
 	// initialie our image storage
-	png_byte * row = new png_byte[bpr];
+	png_byte *row = new png_byte[bpr];
 	for (int y = 0; y < _height; y++)
 	{
 		png_read_row(png_ptr, row, NULL);
-		memcpy(_buffer + y*_width*PNG::BPP, row, _width*PNG::BPP);
+		memcpy(_buffer + y * _width * PNG::BPP, row, _width * PNG::BPP);
 	}
 
 	// cleanup
@@ -212,9 +214,9 @@ bool PNG::readFromFile(string const& file_name)
 	return true;
 }
 
-bool PNG::writeToFile(string const & file_name)
+bool PNG::writeToFile(string const &file_name)
 {
-	FILE * fp = fopen(file_name.c_str(), "wb");
+	FILE *fp = fopen(file_name.c_str(), "wb");
 	if (!fp)
 	{
 		pngErr("Failed to open file " + file_name);
@@ -256,12 +258,12 @@ bool PNG::writeToFile(string const & file_name)
 		fclose(fp);
 		return false;
 	}
-	png_set_IHDR(png_ptr, info_ptr, _width, _height, 
-			8,
-			PNG_COLOR_TYPE_RGB_ALPHA, 
-			PNG_INTERLACE_NONE, 
-			PNG_COMPRESSION_TYPE_BASE,
-			PNG_FILTER_TYPE_BASE);
+	png_set_IHDR(png_ptr, info_ptr, _width, _height,
+				 8,
+				 PNG_COLOR_TYPE_RGB_ALPHA,
+				 PNG_INTERLACE_NONE,
+				 PNG_COMPRESSION_TYPE_BASE,
+				 PNG_FILTER_TYPE_BASE);
 
 	png_write_info(png_ptr, info_ptr);
 
@@ -275,10 +277,10 @@ bool PNG::writeToFile(string const & file_name)
 	}
 
 	int bpr = png_get_rowbytes(png_ptr, info_ptr);
-	png_byte * row = new png_byte[bpr];
+	png_byte *row = new png_byte[bpr];
 	for (int y = 0; y < _height; y++)
 	{
-		memcpy(row, _buffer + y*_width*PNG::BPP, _width*PNG::BPP);
+		memcpy(row, _buffer + y * _width * PNG::BPP, _width * PNG::BPP);
 		png_write_row(png_ptr, row);
 	}
 
@@ -300,7 +302,8 @@ int PNG::getHeight() const
 	return _height;
 }
 
-uint8_t *PNG::buffer() {
+uint8_t *PNG::buffer()
+{
 	return _buffer;
 }
 
@@ -328,7 +331,7 @@ void PNG::_blank()
 	memset(_buffer, 0xFF, _width * _height * PNG::BPP);
 }
 
-void PNG::_copy(PNG const& other)
+void PNG::_copy(PNG const &other)
 {
 	if (!_ext_buffer)
 	{
@@ -336,7 +339,9 @@ void PNG::_copy(PNG const& other)
 		_height = other._height;
 		_ext_buffer = false;
 		_buffer = new uint8_t[_width * _height * PNG::BPP];
-	} else {
+	}
+	else
+	{
 		if (_width * _height != other._width * other._height)
 		{
 			return;
@@ -345,11 +350,11 @@ void PNG::_copy(PNG const& other)
 		_width = other._width;
 		_height = other._height;
 	}
-	
+
 	memcpy(_buffer, other._buffer, _width * _height * PNG::BPP);
 }
 
-void PNG::_clampXY(int& x, int& y) const
+void PNG::_clampXY(int &x, int &y) const
 {
 	if (x < 0)
 	{
