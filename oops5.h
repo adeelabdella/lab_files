@@ -38,7 +38,7 @@ istream &operator>>(istream &input, Point &p)
 }
 ostream &operator<<(ostream &output, const Point &p)
 {
-    output << "x : " << p._x << ", y: " << p._y << endl;
+    output << "x : " << p._x << ", y: " << p._y;
     return output;
 }
 double Point ::l2Norm() const
