@@ -35,7 +35,7 @@ int main()
     int arraySize[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 5000, 10000, 50000};
     for (int i = 0; i < sizeof(arraySize) / sizeof(arraySize[0]); i++)
     {
-        int size = arraySize[i];
+        long long size = arraySize[i];
         vector<Point> v(size);
         for (int i = 0; i < size; i++)
         {
@@ -46,7 +46,8 @@ int main()
         insertionSort(v, size);
         auto end_time = chrono::high_resolution_clock::now();
         auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);
-        cout << "Time = " << duration.count() << " \xC2\xB5s" << endl;
+        cout << "Time = " << duration.count() << " \xC2\xB5s"
+             << " ≡ " << static_cast<double>(duration.count() * 1000) / (size * size) << " K (constant)" << endl;
         for (int i = 0; i < v.size() && v.size() == 10; i++)
         {
             cout << v[i] << endl;
