@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <chrono>
-#include "oops5.h"
+#include "points_header.h"
 using namespace std;
 #define PRIME 4354773
 
