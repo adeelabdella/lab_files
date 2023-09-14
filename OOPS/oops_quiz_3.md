@@ -48,7 +48,7 @@ Q3. Define a class **STRPLUS.** Include one data member which is a **string**. W
 
 Ans :
 
-<code>
+```
     #include \<iostream\>
     #include \<string\>
     #include \<cctype\>
@@ -67,7 +67,7 @@ Ans :
             return \*this;
         }
     };
-</code>
+```
 
 ![Shape4](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
 
