@@ -15,7 +15,7 @@ So, in summary:
 1. For member function-based overloading: No additional arguments are needed; the object itself is implicitly passed as this.
 2. For friend function-based overloading: You need one additional argument, which is the object you are operating on.
 
-![Shape1](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q2.When used in prefix form, what does the overloaded ++ operator do differently from what it does in postfix form?
 
@@ -100,7 +100,7 @@ Q6. To convert from a basic type to a user-defined class, you would most likely 
 
 Ans : (B.) a one-argument constructor.
 
-![Shape7](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q7. True or false: If you've defined a constructor to handle definitions like **aclass obj = intvar;** you can also make statements like obj = intvar;.
 
@@ -108,19 +108,21 @@ Ans :
 
 True
 Like in code =\>
+
 ```cpp
     MyClass obj;
     obj=5;
 ```
+
 The first line calls the default constructor and the second line calls the copy constructor to make an object with integer(5) and this does not throw any compilation error.
 
-![Shape8](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q8.True or false: The compiler won't object if you overload the \* operator to perform division
 
 Ans : True;
 
-![Shape9](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q9.Operator overloading is
 
@@ -131,4 +133,4 @@ Q9.Operator overloading is
 
 Ans: C (giving new meanings to existing C++ operators.)
 
-![Shape10](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
