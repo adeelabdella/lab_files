@@ -9,4 +9,5 @@
     "functional": "cpp",
     "iostream": "cpp"
   },
+  "livePreview.defaultPreviewPath": "/OOPS/edit.html",
 }
