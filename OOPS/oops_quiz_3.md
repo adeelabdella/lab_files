@@ -1,6 +1,6 @@
 # **OOPS, Quiz 3**
 
-# **14/9/2023**
+## **14/9/2023**
 
 Q1 . How many arguments are required in the definition of an overloaded unary operator?
 
@@ -27,7 +27,7 @@ The overloaded `++` operator behaves differently in prefix and postfix forms, an
 
 - Postfix increment uses the current value, returns a copy of the original value, and then increments the object afterward.
 
-![Shape2](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q3.When you overload an arithmetic assignment operator, the result
 
@@ -42,7 +42,7 @@ clarifying option d =\>
 
 it is not necessary to return the modified object but it is a preferred way and not returning it will deprive us of some functionalities like chain assignment (like Point p1, p2, p3; p1 = p2 = p3;).In case of p1 = p2;We do modify the p1 so returning or not returning does not affect us, but in chaining first p2 = p3 will happen and the return value for to be assigned to p1 would come out to be void which will throw compile error.
 
-![Shape3](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q3. Define a class **STRPLUS.** Include one data member which is a **string**. Write the complete definition of an overloaded ++ operator that works with the String class from the STRPLUS example and has the effect of changing its operand to uppercase. You can use the library function toupper() (header file CCTYPE), which takes as its only argument the character to be changed and returns the changed character (or the same character if no change is necessary).
 
@@ -69,7 +69,7 @@ public:
 };
 ```
 
-![Shape4](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q4. To convert from a user-defined class to a basic type, you would most likely use
 
@@ -83,13 +83,13 @@ d. conversion operator that's a member of the class.
 
 Ans: (d) conversion operator that's a member of the class.
 
-![Shape5](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q5. True or false: The statement objA=objB; will cause a compiler error if the objects are of different classes.
 
 Ans : True;
 
-![Shape6](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
+---
 
 Q6. To convert from a basic type to a user-defined class, you would most likely use
 
