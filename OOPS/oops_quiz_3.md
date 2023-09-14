@@ -61,12 +61,11 @@ public:
     STRPLUS() : \_str("") {}
     STRPLUS(const string& s) : \_str(s) {}
     STRPLUS& operator++() {
-    for (char& c : \_str) {
-        c = toupper(c);
+        for (char& c : \_str) {
+            c = toupper(c);
+        }
+        return \*this;
     }
-    return \*this;
-}
-
 };
 ```
 
