@@ -108,10 +108,11 @@ Ans :
 
 True
 Like in code =\>
+    ``
+    MyClass obj;
+    obj=5;
+    ``
 
-MyClassobj;
-
-obj=5;
 The first line calls the default constructor and the second line calls the copy constructor to make an object with integer(5) and this does not throw any compilation error.
 
 ![Shape8](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
