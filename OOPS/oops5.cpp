@@ -2,7 +2,7 @@
 #include <chrono>
 #include "oops5.h"
 using namespace std;
-#define PRIME 1000000007
+#define PRIME 4354773
 
 void insertionSort(vector<Point> &arr, int n)
 {
@@ -22,16 +22,8 @@ void insertionSort(vector<Point> &arr, int n)
     }
 }
 
-int main()
+void checkPerformance()
 {
-
-    // Point p1(1, 1);
-    // Point p2(2.6, -2);
-    // cout << "lNorm P1 = " << p1.l2Norm() << endl;
-    // cout << "lNorm P2 = " << p2.l2Norm() << endl;
-    // cout << p2[1] << endl;
-    // p2[1] = 7;
-    // p2.printCoords();
     int arraySize[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 5000, 10000, 50000};
     for (int i = 0; i < sizeof(arraySize) / sizeof(arraySize[0]); i++)
     {
@@ -53,17 +45,37 @@ int main()
             cout << v[i] << endl;
         }
     }
-    // Point arr[5];
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     cin >> arr[i];
-    // }
+}
 
-    // insertionSort(arr, 5);
-    // for (int i = 0; i < vPoints[0].size(); i++)
-    // {
-    //     cout << vPoints[0][i] << endl;
-    // }
+void checkPostfix(Point p)
+{
+    cout << "Postfix = " << p++ << endl;
+    cout << "After = " << p << endl;
+}
 
+void checkPrefix(Point p)
+{
+    cout << "Prefix = " << ++p << endl;
+    cout << "After = " << p << endl;
+}
+
+int main()
+{
+
+    Point p1(1, 1);
+    Point p2(2.6, -2);
+    // cout << "lNorm P1 = " << p1.l2Norm() << endl;
+    // cout << "lNorm P2 = " << p2.l2Norm() << endl;
+    // cout << p2[1] << endl;
+    // p2[1] = 7;
+    // p2.printCoords();
+
+    Point p3;
+    p3 = -p2;
+    cout << p2 << " ; " << p3 << endl;
+    cout << p1 + -p2 << endl;
+    // checkPerformance();
+    // checkPostfix(p1);
+    // checkPrefix(p1);
     return 0;
 }
