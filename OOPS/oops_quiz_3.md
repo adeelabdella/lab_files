@@ -48,26 +48,26 @@ Q3. Define a class **STRPLUS.** Include one data member which is a **string**. W
 
 Ans :
 
-```
-#include <iostream>
-#include <string>
-#include <cctype>
+``
+#include \<iostream\>
+#include \<string\>
+#include \<cctype\>
 
 namespace std;
 
 class STRPLUS {
-    string _str;
+    string \_str;
 public:
-    STRPLUS() : _str("") {}
-    STRPLUS(const string& s) : _str(s) {}
+    STRPLUS() : \_str("") {}
+    STRPLUS(const string& s) : \_str(s) {}
     STRPLUS& operator++() {
-        for (char& c : _str) {
+        for (char& c : \_str) {
             c = toupper(c);
         }
-        return *this;
+        return \*this;
     }
 };
-```
+``
 
 ![Shape4](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
 
@@ -108,11 +108,10 @@ Ans :
 
 True
 Like in code =\>
-    ``
+``
     MyClass obj;
     obj=5;
-    ``
-
+``
 The first line calls the default constructor and the second line calls the copy constructor to make an object with integer(5) and this does not throw any compilation error.
 
 ![Shape8](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
