@@ -48,26 +48,26 @@ Q3. Define a class **STRPLUS.** Include one data member which is a **string**. W
 
 Ans :
 
-```
-    #include \<iostream\>
-    #include \<string\>
-    #include \<cctype\>
+```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
 
-    namespace std;
+namespace std;
 
-    class STRPLUS {
-        string \_str;
-    public:
-        STRPLUS() : \_str("") {}
-        STRPLUS(const string& s) : \_str(s) {}
-        STRPLUS& operator++() {
-            for (char& c : \_str) {
-                c = toupper(c);
-            }
-            return \*this;
+class STRPLUS {
+    string _str;
+public:
+    STRPLUS() : _str("") {}
+    STRPLUS(const string& s) : _str(s) {}
+    STRPLUS& operator++() {
+        for (char& c : _str) {
+            c = toupper(c);
         }
-    };
-```
+        return *this;
+    }
+};
+
 
 ![Shape4](RackMultipart20230914-1-1h5i79_html_cb55ddb5edd60516.gif)
 
