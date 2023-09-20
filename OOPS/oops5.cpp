@@ -77,8 +77,10 @@ void checkIfPrivateCanBeAccessedDirectly()
 int main()
 {
 
-    // Point p1(1, 1);
-    // Point p2(2.6, -2);
+    Point p1(1, 1);
+    Point p2(2.6, -2);
+    Point p3;
+    p3 = p2 = p1;
     // cout << "lNorm P1 = " << p1.l2Norm() << endl;
     // cout << "lNorm P2 = " << p2.l2Norm() << endl;
     // cout << p2 << endl;
@@ -100,7 +102,11 @@ int main()
     // checkPrefix(p1);
     // checkIfPrivateCanBeAccessedDirectly();
 
-    cout << (X_VALUE == 0) << endl;
+    int a = 5, b = 56, c = 78;
+
+    c = a += b;
+
+    p3 = p1 += p2;
 
     return 0;
 }

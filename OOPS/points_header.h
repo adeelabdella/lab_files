@@ -24,7 +24,7 @@ public:
     Point midPoint(Point &);
     static int objInstances(); // static memeber function
     double l2Norm() const;
-    static int getCount();
+    // static int getCount();
 
     // CONSTRUCTORS & DESTRUCTORS
     Point();               // This is the DEFAULT constructor
@@ -44,13 +44,20 @@ public:
     bool operator<(const Point &) const;
     bool operator>(const Point &) const;
     bool operator==(const Point &) const;
-    void operator=(const Point &);
+    Point operator+=(const Point &);
+    Point operator=(const Point &);
     double &operator[](const Index index);
     friend istream &operator>>(istream &input, Point &p);
     friend ostream &operator<<(ostream &output, const Point &p);
     void *operator new(size_t);
     void operator delete(void *);
 };
+
+Point Point::operator+=(const Point &p)
+{
+    _x += p._x;
+    _y += p._y;
+}
 
 void *Point::operator new(size_t size)
 {
@@ -64,24 +71,24 @@ void Point::operator delete(void *p)
     free(p);
 }
 
-void Point ::operator=(const Point &p)
+Point Point ::operator=(const Point &p)
 {
     _x = p._x;
     _y = p._y;
-    // return *this;
+    return *this;
 }
 Point Point ::operator++(int)
 {
     Point temp;
     temp = *this;
-    _x++;
-    _y++;
+    ++_x;
+    ++_y;
     return temp;
 }
 Point Point ::operator++()
 {
-    _x++;
-    _y++;
+    ++_x;
+    ++_y;
     return (*this);
 }
 Point Point ::operator+(const Point &p) const
