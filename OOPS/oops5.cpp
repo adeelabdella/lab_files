@@ -59,24 +59,46 @@ void checkPrefix(Point p)
     cout << "After = " << p << endl;
 }
 
+void checkIfPrivateCanBeAccessedDirectly()
+{
+    Point p1(1, 1);
+    cout << p1 << endl;
+
+    double *ptr = (double *)((void *)&p1);
+    cout << ptr << endl;
+
+    (*ptr) = 1.6845;
+    ptr++;
+    (*ptr) = 2.6554;
+
+    cout << p1 << endl;
+}
+
 int main()
 {
 
-    Point p1(1, 1);
-    Point p2(2.6, -2);
+    // Point p1(1, 1);
+    // Point p2(2.6, -2);
     // cout << "lNorm P1 = " << p1.l2Norm() << endl;
     // cout << "lNorm P2 = " << p2.l2Norm() << endl;
-    cout << p2 << endl;
-    cout << p2[X_VALUE] << endl;
-    p2[Y_VALUE] = 7;
-    p2.printCoords();
+    // cout << p2 << endl;
+    // cout << p2[X_VALUE] << endl;
+    // p2[Y_VALUE] = 7;
+    // p2.printCoords();
+
+    // Point p3 = p2, p4;
+    // p4 = p2;
 
     // Point p3;
     // p3 = -p2;
     // cout << p2 << " ; " << p3 << endl;
     // cout << p1 + -p2 << endl;
+
+    // CHECKINGS ===>>>
     // checkPerformance();
     // checkPostfix(p1);
     // checkPrefix(p1);
+    // checkIfPrivateCanBeAccessedDirectly();
+
     return 0;
 }

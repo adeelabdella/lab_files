@@ -147,13 +147,13 @@ Point ::Point()
 {
     count++;
     _x = _y = 0;
-    // cout << "constructor is called" << endl;
+    cout << "constructor is called" << endl;
 }
 
 Point ::~Point()
 {
     count--;
-    // cout << "Destructor is called for " << _x << "," << _y << endl;
+    cout << "Destructor is called for " << _x << "," << _y << endl;
 } // destructor
 
 Point ::Point(double x, double y)
@@ -170,7 +170,7 @@ Point ::Point(const Point &p)
     _x = p._x;
     _y = p._y;
     count++;
-    // cout << "Copy constructor is called" << endl;
+    cout << "Copy constructor is called" << endl;
 }
 
 // memeber functions
