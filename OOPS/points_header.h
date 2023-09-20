@@ -39,7 +39,20 @@ public:
     double &operator[](const bool index);
     friend istream &operator>>(istream &input, Point &p);
     friend ostream &operator<<(ostream &output, const Point &p);
+    void *operator new(size_t);
+    void operator delete(void *);
 };
+
+void *Point::operator new(size_t size)
+{
+    void *p = malloc(size);
+    return p;
+}
+void Point::operator delete(void *p)
+{
+    free(p);
+}
+
 void Point ::operator=(const Point &p)
 {
     _x = p._x;
