@@ -100,5 +100,7 @@ int main()
     // checkPrefix(p1);
     // checkIfPrivateCanBeAccessedDirectly();
 
+    cout << (X_VALUE == 0) << endl;
+
     return 0;
 }

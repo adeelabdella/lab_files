@@ -4,8 +4,11 @@ using namespace std;
 
 enum Index
 {
-    X_VALUE = 0,
-    Y_VALUE = 1,
+    // X_VALUE = 0,
+    // Y_VALUE = 1,
+    // OR
+    X_VALUE,
+    Y_VALUE
 };
 
 class Point
