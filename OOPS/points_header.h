@@ -151,7 +151,7 @@ double Point ::l2Norm() const
 }
 double &Point::operator[](const Index index)
 {
-    return index ? _y : _x;
+    return index == X_VALUE ? _x : _y;
 }
 Point ::Point()
 {
