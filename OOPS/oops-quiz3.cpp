@@ -36,5 +36,15 @@ int main()
     obj = 5;
     cout << static_cast<char>(toupper('a')) << endl;
     cout << obj.getValue() << endl;
+
+    Point *ptr = new Point(2.6, 3.6);
+    cout << (*ptr) << endl;
+    delete ptr;
+    ptr = nullptr;
+    
+    Point pp(*ptr);
+
+    cout << pp << endl;
+
     return 0;
 }

@@ -66,14 +66,15 @@ int main()
     Point p2(2.6, -2);
     // cout << "lNorm P1 = " << p1.l2Norm() << endl;
     // cout << "lNorm P2 = " << p2.l2Norm() << endl;
-    // cout << p2[1] << endl;
-    // p2[1] = 7;
-    // p2.printCoords();
+    cout << p2 << endl;
+    cout << p2[X_VALUE] << endl;
+    p2[Y_VALUE] = 7;
+    p2.printCoords();
 
-    Point p3;
-    p3 = -p2;
-    cout << p2 << " ; " << p3 << endl;
-    cout << p1 + -p2 << endl;
+    // Point p3;
+    // p3 = -p2;
+    // cout << p2 << " ; " << p3 << endl;
+    // cout << p1 + -p2 << endl;
     // checkPerformance();
     // checkPostfix(p1);
     // checkPrefix(p1);

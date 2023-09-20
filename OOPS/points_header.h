@@ -2,6 +2,12 @@
 #define TOLERANCE 0.5
 using namespace std;
 
+enum Index
+{
+    X_VALUE = 0,
+    Y_VALUE = 1,
+};
+
 class Point
 {
     static int count;
@@ -36,7 +42,7 @@ public:
     bool operator>(const Point &) const;
     bool operator==(const Point &) const;
     void operator=(const Point &);
-    double &operator[](const bool index);
+    double &operator[](const Index index);
     friend istream &operator>>(istream &input, Point &p);
     friend ostream &operator<<(ostream &output, const Point &p);
     void *operator new(size_t);
@@ -45,11 +51,13 @@ public:
 
 void *Point::operator new(size_t size)
 {
+    cout << "New Operator called.\n";
     void *p = malloc(size);
     return p;
 }
 void Point::operator delete(void *p)
 {
+    cout << "Delete Operator called.\n";
     free(p);
 }
 
@@ -131,7 +139,7 @@ double Point ::l2Norm() const
 {
     return sqrt(_x * _x + _y * _y);
 }
-double &Point::operator[](const bool index)
+double &Point::operator[](const Index index)
 {
     return index ? _y : _x;
 }
