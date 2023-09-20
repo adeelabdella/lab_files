@@ -74,14 +74,14 @@ Point Point ::operator++(int)
 {
     Point temp;
     temp = *this;
-    _x += 1;
-    _y += 1;
+    _x++;
+    _y++;
     return temp;
 }
 Point Point ::operator++()
 {
-    _x += 1;
-    _y += 1;
+    _x++;
+    _y++;
     return (*this);
 }
 Point Point ::operator+(const Point &p) const
