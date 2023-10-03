@@ -57,6 +57,7 @@ Point Point::operator+=(const Point &p)
 {
     _x += p._x;
     _y += p._y;
+    return (*this);
 }
 
 void *Point::operator new(size_t size)
@@ -157,13 +158,13 @@ Point ::Point()
 {
     count++;
     _x = _y = 0;
-    cout << "constructor is called" << endl;
+    cout << "Point Default Constructor is called" << endl;
 }
 
 Point ::~Point()
 {
     count--;
-    cout << "Destructor is called for " << _x << "," << _y << endl;
+    cout << "Point Destructor is called for " << _x << "," << _y << endl;
 } // destructor
 
 Point ::Point(double x, double y)
@@ -172,7 +173,7 @@ Point ::Point(double x, double y)
     _x = x;
     _y = y;
 
-    cout << "Parameterized constructor is called" << endl;
+    cout << "Point Parameterized constructor is called" << endl;
 } // Parameterized constructor
 
 Point ::Point(const Point &p)
@@ -180,7 +181,7 @@ Point ::Point(const Point &p)
     _x = p._x;
     _y = p._y;
     count++;
-    cout << "Copy constructor is called" << endl;
+    cout << "Point Copy constructor is called" << endl;
 }
 
 // memeber functions
