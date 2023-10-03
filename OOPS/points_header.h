@@ -24,6 +24,7 @@ public:
     Point midPoint(Point &);
     static int objInstances(); // static memeber function
     double l2Norm() const;
+    pair<double, double> getCords();
     // static int getCount();
 
     // CONSTRUCTORS & DESTRUCTORS
@@ -225,3 +226,8 @@ int Point ::objInstances()
 }
 
 // Ans 4
+
+pair<double, double> Point::getCords()
+{
+    return {_x, _y};
+}
