@@ -31,8 +31,7 @@ double Location::distFrom(Location &loc)
     double mThat = cordThat.second / cordThat.first;
     double angle = (mThis - mThat) / (1 + mThat * mThis);
     angle = atan(angle);
-    angle = angle * PI / 180;
-    double distance = angle * PI * RADIUS_OF_EARTH;
+    double distance = fabs(angle) * PI * RADIUS_OF_EARTH;
     return distance;
 }
 
