@@ -5,7 +5,12 @@ class Element
 {
 public:
     virtual void print() = 0;
+    // virtual double norm() = 0;
 };
+
+
+
+
 class Point : public Element
 {
 public:
