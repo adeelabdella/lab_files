@@ -53,6 +53,7 @@ PointN::PointN(int _dim, double *_arr = nullptr) : dimension(_dim)
 }
 PointN::~PointN()
 {
+    // TODO : Why is delete creating an issue ?
     dimension = 0;
     cout << "Dogg" << endl;
     // double *ptr = pointArray;
