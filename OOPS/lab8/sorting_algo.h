@@ -1,8 +1,3 @@
-#ifndef SORTING_ALGO_H
-#define SORTING_ALGO_H
-
-// Class definition and other content here
-
 #include <bits/stdc++.h>
 #include "element_inherit_poly.h"
 
@@ -54,7 +49,6 @@ void sort_algo_3(Element *to_sort[], const int N)
                 min_index = j;
             }
         }
-        // Swap to_sort[i] and to_sort[min_index]
         Element *temp = to_sort[i];
         to_sort[i] = to_sort[min_index];
         to_sort[min_index] = temp;
@@ -101,5 +95,3 @@ void sort_algo_3(Element *to_sort[], const int N)
 //         to_sort[j + 1] = key;
 //     }
 // }
-
-#endif
