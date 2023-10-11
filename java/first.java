@@ -7,7 +7,7 @@ public class Main {
 }
 
 public class NewMain {
-    public static void newMain() {
+    public void newMain() {
         System.out.println("Hello from new World");
     }
 }
