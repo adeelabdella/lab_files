@@ -1,3 +1,6 @@
+#ifndef ELEMENT_INHERIT_POLY
+#define ELEMENT_INHERIT_POLY
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -139,3 +142,5 @@ void Line ::print()
     cout << "Line Class" << endl;
     cout << "Length = " << norm() << endl;
 }
+
+#endif

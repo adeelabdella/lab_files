@@ -71,11 +71,11 @@ int main()
              << " | ";
         cout << "Sorting Executor 3 = " << static_cast<long long>(time3) << " \xC2\xB5s" << endl;
 
-        cout << "Speed Ratio 1/2 = " << time1 / time2 << endl;
-        cout << "Speed Ratio 1/3 = " << time1 / time3 << endl;
-        cout << "Speed Ratio 2/3 = " << time2 / time3 << endl;
+        // cout << "Speed Ratio 1/2 = " << time1 / time2 << endl;
+        // cout << "Speed Ratio 1/3 = " << time1 / time3 << endl;
+        // cout << "Speed Ratio 2/3 = " << time2 / time3 << endl;
         cout << "Speed Ratio 3/1 = " << time3 / time1 << endl;
-        cout << "Speed Ratio 3/2 = " << time3 / time2 << endl;
+        // cout << "Speed Ratio 3/2 = " << time3 / time2 << endl;
         cout << "Speed Ratio 2/1 = " << time2 / time1 << endl;
         cout << endl;
     }
