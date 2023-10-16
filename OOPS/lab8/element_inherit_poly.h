@@ -79,7 +79,7 @@ double PointN::norm()
     double temp = 0;
     for (int i = 0; i < dimension; i++)
     {
-        temp += powf64(pointArray[i], 2);
+        temp += pow(pointArray[i], 2);
     }
     return temp;
 }
@@ -101,7 +101,7 @@ public:
     Point();
     Point(double x, double y) : _x(x), _y(y){};
     void print() override;
-    double norm() override { return powf32x(_x, 2) + powf32x(_y, 2); };
+    double norm() override { return pow(_x, 2) + pow(_y, 2); };
 };
 class Vector : public Element
 {
@@ -111,7 +111,7 @@ public:
     Vector() : _x(0), _y(0), _z(0){};
     Vector(double x, double y, double z) : _x(x), _y(y), _z(z){};
     void print() override;
-    double norm() override { return powf32x(_x, 2) + powf32x(_y, 2) + powf32x(_z, 2); };
+    double norm() override { return pow(_x, 2) + pow(_y, 2) + pow(_z, 2); };
 };
 class Line : public Element
 {
@@ -121,7 +121,7 @@ public:
     Line() : _length(0){};
     Line(double len) : _length(len){};
     void print() override;
-    double norm() override { return powf32x(_length, 2); };
+    double norm() override { return pow(_length, 2); };
 };
 
 void Point ::print()
