@@ -1,5 +1,1 @@
-doc
-*.o
-*.a
-*.out
-*.vscode
+a.out

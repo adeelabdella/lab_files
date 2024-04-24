@@ -1,114 +1,13 @@
-// #include <bits/stdc++.h>
-// #include <fstream>
-
-// using namespace std;
-// bool isFinalState(vector<int> fs, int cur)
-// {
-//     int i = 0;
-//     for (; i < fs.size(); i++)
-//     {
-//         if (fs[i] == cur)
-//         {
-//             return true;
-//         }
-//     }
-//     return false;
-// }
-// vector<int> lineToVec(string line)
-// {
-
-//     int i = 0;
-//     vector<int> v;
-//     for (; i < line.length(); i++)
-//     {
-//         if (line[i] == '-')
-//         {
-//             v.push_back(-1);
-//         }
-//         else if (line[i] != ',')
-//         {
-//             v.push_back(line[i] - '0');
-//         }
-//     }
-//     return v;
-// }
-// bool isAccepted(string str, vector<vector< int > > table, vector<int>
-// finalStates, int qi)
-// {
-
-//     int len = str.length();
-//     int m = table[0].size();
-//     int i = 0, cur = 0;
-//     while (i < len && cur != -1)
-//     {
-//         if (str[i] - '0' >= m)
-//         {
-//             return false;
-//         }
-//         cur = table[cur][str[i] - '0'];
-//         i++;
-//     }
-//     if (isFinalState(finalStates, cur))
-//     {
-//         return true;
-//     }
-//     return false;
-// }
-// int main()
-// {
-//     ifstream fin;
-//     string l;
-//     fin.open("./data/lab1_dfa.txt");
-//     int cnt = 0;
-//     int qi;
-//     vector<int> finalStates;
-//     vector<vector< int > > table;
-//     while (getline(fin, l))
-//     {
-//         cnt++;
-//         vector<int> temp = lineToVec(l);
-//         if (cnt == 1)
-//         {
-//             qi = temp[0];
-//         }
-//         else if (cnt == 2)
-//         {
-//             int i = 0;
-//             for (; i < temp.size(); i++)
-//             {
-//                 finalStates.push_back(temp[i]);
-//             }
-//         }
-//         else
-//         {
-//             table.push_back(temp);
-//         }
-//         cout << endl;
-//     }
-//     fin.close();
-//     string s, ans;
-//     cout << "Enter string " << endl;
-//     getline(cin, s);
-//     if (isAccepted(s, table, finalStates, qi))
-//     {
-//         ans = "Accepted";
-//     }
-//     else
-//     {
-//         ans = "not accepted";
-//     }
-//     cout << "The Input " << s << " is " << ans << endl;
-//     return 0;
-// }
-
 #include <bits/stdc++.h>
-
+#include <cstdlib>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
 int finalStates(vector<int> &v, int c) {
   for (int i = 0; i < v.size(); i++) {
-    if (v[i] == c) return 1;
+    if (v[i] == c)
+      return 1;
   }
   return 0;
 }
@@ -130,7 +29,7 @@ vector<int> stringToVector(string &line) {
 }
 
 int isAccepted(string &s) {
-  fstream file("../data/lab1_dfa.txt", ios::in);
+  fstream file("data/lab1_dfa.txt", ios::in);
   int n = s.size();
   vector<vector<int>> v;
   string line;
@@ -169,6 +68,12 @@ int isAccepted(string &s) {
 }
 
 int main() {
+
+  fstream file("data/lab1_dfa.txt");
+  if (!file.is_open()) {
+    cerr << "File opening failed" << endl;
+    return EXIT_FAILURE;
+  }
   string s;
   cout << "Enter the string :";
   cin >> ws;
